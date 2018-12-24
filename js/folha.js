@@ -1,12 +1,12 @@
 function calcularFolha() {
-    let dado = getDados()
-    let provento = calcularProventos(dado)
+    let empregado = obterEmpregado()
+    let provento = calcularProventos(empregado)
     let desconto = calcularDescontos(provento)
     let salarioLiquido = provento.total - desconto.total
-    mostrarFolha({dado, provento, desconto, salarioLiquido})
+    mostrarFolha({empregado, provento, desconto, salarioLiquido})
 }
 
-function getDados () {
+function obterEmpregado () {
     return {
         empregado : getInputSeletor('txtEmpregado'),
         salario : getInputSeletor('txtSalario')
@@ -20,7 +20,7 @@ function getInputSeletor(value) {
 function mostrarFolha(object) {
     console.log(object)
     document.getElementById('result-folha').innerHTML = `
-    <h3>Folha de pagamento do empregado ${object.dado.empregado} </h3>
+    <h3>Folha de pagamento do empregado ${object.empregado.empregado} </h3>
     <table>
         <tr>
             <th>Descrição</th>
@@ -44,8 +44,8 @@ function mostrarFolha(object) {
         </tr>
         <tr>
             <td></td>
-            <td>total dos proventos</td>
-            <td>total dos descontos</td>
+            <td><strong>total dos proventos</strong</td>
+            <td><strong>total dos descontos</storng></td>
         </tr>
         <tr>
             <td></td>
