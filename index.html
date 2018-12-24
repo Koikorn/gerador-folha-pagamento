@@ -5,25 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gerador de folha de pagamento</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div id="container">
+        <header id="header-logo">
+            <h1>Gerador de folha de pagamento</h1>
+        </header>
         <nav id="menu-page">
-
+            <ul>
+                <li><a href="#">Adicionar</a></li>
+                <li><a href="#">Alterar</a></li>
+                <li><a href="#">Consultar</a></li>
+                <li><a href="#">Remover</a></li>
+            </ul>
         </nav>
-        <div id="form-cadastro">
-            <form action="#">
-                <label for="txtEmpregado">Nome do empregado: </label><input type="text" name="txtEmpregado" id="txtEmpregado"><br>
-                <label for="txtSalario">Salário: </label><input type="text" name="txtSalario" id="txtSalario"><br>
-                <button onclick="calcularFolha()" type="button">Calcular</button>
-            </form>
-        </div>
-        <div id="result-folha">
-            
-        </div>
+        <section id="section-user">
+            <div id="form-cadastro">
+                <h3>Cadastrar Funcionário</h3>
+                <form action="#">
+                    <label for="txtEmpregado">Nome do empregado: </label><input type="text" name="txtEmpregado" id="txtEmpregado"><br>
+                    <label for="txtSalario">Salário: </label><input type="text" name="txtSalario" id="txtSalario"><br>
+                    <button onclick="fazerCalculo()" type="button">Calcular</button>
+                </form>
+            </div>
+            <div id="result-folha">
+                <h3>Consultar folha</h3>
+            </div>
+        </section>
     </div>
     <script src="js/proventos.js"></script>
     <script src="js/descontos.js"></script>
     <script src="js/folha.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

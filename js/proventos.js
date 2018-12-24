@@ -8,7 +8,3 @@ function calcularProventos(object) {
 function calcularSalario(salario) {
     return salario
 }
-
-function obterTotal(object) {
-    
-}
