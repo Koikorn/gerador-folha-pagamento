@@ -1,12 +1,9 @@
 function calcularFolha() {
     let dado = getDados()
-    console.log(dado)
     let provento = calcularProventos(dado)
-    console.log(provento)
     let desconto = calcularDescontos(provento)
-    console.log(desconto)
-    //let salarioLiquido = provento.total - desconto.total
-    //console.log(salarioLiquido)
+    let salarioLiquido = provento.total - desconto.total
+    mostrarFolha({dado, provento, desconto, salarioLiquido})
 }
 
 function getDados () {
@@ -18,4 +15,43 @@ function getDados () {
 
 function getInputSeletor(value) {
     return document.getElementById(value).value
+}
+
+function mostrarFolha(object) {
+    console.log(object)
+    document.getElementById('result-folha').innerHTML = `
+    <h3>Folha de pagamento do empregado ${object.dado.empregado} </h3>
+    <table>
+        <tr>
+            <th>Descrição</th>
+            <th>Provento</th>
+            <th>Desconto</th>
+        </tr>
+        <tr>
+            <td>Salário</td>
+            <td>${object.provento.salario}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>INSS</td>
+            <td></td>
+            <td>${object.desconto.inss}</td>
+        </tr>
+        <tr>
+            <td>IRRF</td>
+            <td></td>
+            <td>${object.desconto.irrf}</td>
+        </tr>
+        <tr>
+            <td>INSS</td>
+            <td>${object.provento.total}</td>
+            <td>${object.desconto.total}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Salário Líquido</td>
+            <td>${object.salarioLiquido}</td>
+        </tr>
+    </table>
+    `
 }
