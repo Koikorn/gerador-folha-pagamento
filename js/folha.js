@@ -2,14 +2,16 @@ function calcularFolha() {
     let empregado = obterEmpregado()
     let provento = calcularProventos(empregado)
     let desconto = calcularDescontos(provento)
+
     let salarioLiquido = provento.total - desconto.total
+
     mostrarFolha({empregado, provento, desconto, salarioLiquido})
 }
 
 function obterEmpregado () {
     return {
         empregado : getInputSeletor('txtEmpregado'),
-        salario : getInputSeletor('txtSalario')
+        salario : parseFloat(getInputSeletor('txtSalario'))
     }
 }
 
@@ -17,6 +19,7 @@ function getInputSeletor(value) {
     return document.getElementById(value).value
 }
 
+//Função que irá gerar uma table para ser mostrada na página html
 function mostrarFolha(object) {
     console.log(object)
     document.getElementById('result-folha').innerHTML = `
@@ -29,18 +32,18 @@ function mostrarFolha(object) {
         </tr>
         <tr>
             <td>Salário</td>
-            <td>${object.provento.salario}</td>
+            <td>${(object.provento.salario).toFixed(2)}</td>
             <td></td>
         </tr>
         <tr>
             <td>INSS</td>
             <td></td>
-            <td>${object.desconto.inss}</td>
+            <td>${(object.desconto.inss).toFixed(2)}</td>
         </tr>
         <tr>
             <td>IRRF</td>
             <td></td>
-            <td>${object.desconto.irrf}</td>
+            <td>${(object.desconto.irrf).toFixed(2)}</td>
         </tr>
         <tr>
             <td></td>
@@ -49,13 +52,13 @@ function mostrarFolha(object) {
         </tr>
         <tr>
             <td></td>
-            <td>${object.provento.total}</td>
-            <td>${object.desconto.total}</td>
+            <td>${(object.provento.total).toFixed(2)}</td>
+            <td>${(object.desconto.total).toFixed(2)}</td>
         </tr>
         <tr>
             <td></td>
             <td>Salário Líquido</td>
-            <td>${object.salarioLiquido}</td>
+            <td>${(object.salarioLiquido).toFixed(2)}</td>
         </tr>
     </table>`
 }
