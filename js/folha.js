@@ -43,7 +43,12 @@ function mostrarFolha(object) {
             <td>${object.desconto.irrf}</td>
         </tr>
         <tr>
-            <td>INSS</td>
+            <td></td>
+            <td>total dos proventos</td>
+            <td>total dos descontos</td>
+        </tr>
+        <tr>
+            <td></td>
             <td>${object.provento.total}</td>
             <td>${object.desconto.total}</td>
         </tr>
@@ -52,6 +57,5 @@ function mostrarFolha(object) {
             <td>Salário Líquido</td>
             <td>${object.salarioLiquido}</td>
         </tr>
-    </table>
-    `
+    </table>`
 }
