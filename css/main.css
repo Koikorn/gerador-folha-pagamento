@@ -1,0 +1,39 @@
+/* Trabalhando com grid layout */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: grid; /* Primeiro precisa definir o display do elemento a ser formatado */
+    grid-template-columns: 20vw 80vw; /* Opicional define a largura que o layout irá ocupar */
+    grid-template-areas: /* Segundo criar um template que define uma grid onde cada palavra é a representação de um espaço a ser ocupado */
+        "header header"
+        "menu section";
+}
+
+#header-logo {
+    text-align: center;
+    grid-area: header; /* Terceiro definir o elemento da formatação a letra correspondente ao grid-template */
+    padding: 10px 0;
+    background: rgb(168, 168, 168);
+}
+
+#menu-page {
+    grid-area: menu;
+    padding: 20px 30px;
+}
+
+#menu-page ul li {
+    list-style: none;
+}
+
+#section-user {
+    grid-area: section;
+    padding: 20px 30px;
+}
+
+#section-user div {
+    margin-bottom: 10px;
+}
