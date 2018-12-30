@@ -17,10 +17,7 @@ function getInputSeletor(value) {
 
 //Função que irá gerar uma table para ser mostrada na página html
 function mostrarFolha(object) {
-<<<<<<< HEAD
     console.log(object)
-=======
->>>>>>> 7d5dc8e7735d7b70bcce3e6b89559bf054bc8476
     document.getElementById('result-folha').innerHTML = `
     <h3>Folha de pagamento do empregado ${object.empregado.empregado} </h3>
     <table>
@@ -37,7 +34,7 @@ function mostrarFolha(object) {
         <tr>
             <td>INSS</td>
             <td></td>
-            <td>${(object.desconto.inss).toFixed(2)}</td>
+            <td>${(object.desconto.inss.total).toFixed(2)}</td>
         </tr>
         <tr>
             <td>IRRF</td>

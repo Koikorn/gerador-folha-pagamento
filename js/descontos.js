@@ -1,18 +1,19 @@
 function calcularDescontos(provento) {
     let inss = calcularINSS(provento.total)
-    let irrf = calcularIRRF(provento.salario, inss)
+    let irrf = calcularIRRF(provento.total, inss.total)
+    let total = obterTotalDescontos(inss.total, irrf.total)
 
-    return {
-        inss : inss,
-        irrf : irrf, 
-        total : total(inss.total, irrf.total)
-    }
+    return {inss, irrf , total}
 }
 
 /* Funções relativas do cálculo do inss */
 
 function calcularINSS(salarioBruto) {
-    return obterResultadoINSS(obterBaseCalculoINSS(salarioBruto), obterAliquotaINSS(obterBaseCalculoINSS(salarioBruto)))
+    let baseCalculo = salarioBruto > 5645.8 ? 5645.8 :  salarioBruto
+    let aliquota = obterAliquotaINSS(baseCalculo)
+    let total = obterResultadoINSS(baseCalculo, aliquota)
+
+    return {baseCalculo, aliquota, total}
 }
 
 function obterBaseCalculoINSS(salarioBruto) {
@@ -44,11 +45,11 @@ function calcularIRRF(salarioBruto, inss) {
     let taxaDeducao = obtertaxaDeducaoIRRF(baseCalculo)
     let total = obterResultadoIRRF(baseCalculo, aliquota, taxaDeducao)
 
-    return {aliquota, taxaDeducao, total}
+    return {baseCalculo, aliquota, taxaDeducao, total}
 }
 
 function obterBaseCalculoIRRF(salarioBruto, inss, dependentes = 0) {
-    return (salarioBruto - inss) - dependentes
+    return (salarioBruto - inss) - (dependentes * 176.8)
 }
 
 function obterAliquotaIRRF(baseCalculo) {
@@ -59,9 +60,9 @@ function obterAliquotaIRRF(baseCalculo) {
     } else if (baseCalculo >= 2826.66 && baseCalculo <= 3751.05) {
         return 0.15
     } else if (baseCalculo >= 3751.06 && baseCalculo <= 4664.68) {
-        return 22.5
+        return 0.225
     } else {
-        return 27.5
+        return 0.275
     }
 }
 
@@ -84,6 +85,6 @@ function obterResultadoIRRF(baseCalculo, aliquota, taxaDeducao) {
 }
 
 //Melhorar o funcionamento da função
-function total ( inss, irrf ) {
+function obterTotalDescontos(inss, irrf) {
     return inss + irrf
 }
