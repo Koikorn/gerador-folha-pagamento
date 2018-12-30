@@ -5,13 +5,13 @@ function calcularProventos(object) {
     return  {salario, total}
 }
 
-function calcularSalario(salarioBruto, diasTrabalhados = 30) {
-    let total = diasTrabalhados != 30 ? obterSalarioProporcional(salarioBruto, diasTrabalhados) : salarioBruto
-    return {salarioBruto, diasTrabalhados, total}
+function calcularSalario(salarioBruto, ref = 30) {
+    let total = ref != 30 ? obterSalarioProporcional(salarioBruto, ref) : salarioBruto
+    return {salarioBruto, ref, total}
 }
 
-function obterSalarioProporcional(salarioBruto, diasTrabalhados) {
-    return (salarioBruto / 30) * diasTrabalhados
+function obterSalarioProporcional(salarioBruto, ref) {
+    return (salarioBruto / 30) * ref
 }
 
 function obterTotalProventos (salarioBruto) {

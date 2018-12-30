@@ -23,35 +23,42 @@ function mostrarFolha(object) {
     <table>
         <tr>
             <th>Descrição</th>
+            <th>Ref</th>
             <th>Provento</th>
             <th>Desconto</th>
         </tr>
         <tr>
             <td>Salário</td>
+            <td>${(object.provento.salario.ref).toFixed(2)}</td>
             <td>${(object.provento.salario.total).toFixed(2)}</td>
             <td></td>
         </tr>
         <tr>
             <td>INSS</td>
+            <td>${(object.desconto.inss.ref).toFixed(2)}</td>
             <td></td>
             <td>${(object.desconto.inss.total).toFixed(2)}</td>
         </tr>
         <tr>
             <td>IRRF</td>
+            <td>${(object.desconto.irrf.ref).toFixed(2)}</td>
             <td></td>
             <td>${(object.desconto.irrf.total).toFixed(2)}</td>
         </tr>
         <tr>
+            <td></td>
             <td></td>
             <td><strong>total dos proventos</strong</td>
             <td><strong>total dos descontos</storng></td>
         </tr>
         <tr>
             <td></td>
+            <td></td>
             <td>${(object.provento.total).toFixed(2)}</td>
             <td>${(object.desconto.total).toFixed(2)}</td>
         </tr>
         <tr>
+            <td></td>
             <td></td>
             <td>Salário Líquido</td>
             <td>${(object.salarioLiquido).toFixed(2)}</td>
