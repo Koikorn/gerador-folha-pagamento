@@ -1,10 +1,19 @@
 function calcularProventos(object) {
-    return  {
-        salario : calcularSalario(object.salario),
-        total : calcularSalario(object.salario) //TODO Ainda irei trabalhar na função que irá calcular tudo
-    }
+    let salario = calcularSalario(object.salario)
+    let total = obterTotalProventos(salario.total)
+
+    return  {salario, total}
 }
 
-function calcularSalario(salario) {
-    return salario
+function calcularSalario(salarioBruto, diasTrabalhados = 30) {
+    let total = diasTrabalhados != 30 ? obterSalarioProporcional(salarioBruto, diasTrabalhados) : salarioBruto
+    return {salarioBruto, diasTrabalhados, total}
+}
+
+function obterSalarioProporcional(salarioBruto, diasTrabalhados) {
+    return (salarioBruto / 30) * diasTrabalhados
+}
+
+function obterTotalProventos (salarioBruto) {
+    return salarioBruto
 }

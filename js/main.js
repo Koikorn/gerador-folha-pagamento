@@ -28,7 +28,7 @@ function mostrarFolha(object) {
         </tr>
         <tr>
             <td>Salário</td>
-            <td>${(object.provento.salario).toFixed(2)}</td>
+            <td>${(object.provento.salario.total).toFixed(2)}</td>
             <td></td>
         </tr>
         <tr>
