@@ -1,2 +1,7 @@
 # arquivos do node js 
 node_modules/
+js/materialize.js
+js/materialize.min.js
+LICENSE
+css/materialize.css
+css/materialize.min.css

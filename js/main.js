@@ -19,49 +19,53 @@ function getInputSeletor(value) {
 function mostrarFolha(object) {
     console.log(object)
     document.getElementById('result-folha').innerHTML = `
-    <h3>Folha de pagamento do empregado ${object.empregado.empregado} </h3>
+    <h3>resultado da folha do empregado ${object.empregado.empregado} </h3>
     <table>
-        <tr>
-            <th>Descrição</th>
-            <th>Ref</th>
-            <th>Provento</th>
-            <th>Desconto</th>
-        </tr>
-        <tr>
-            <td>Salário</td>
-            <td>${(object.provento.salario.ref).toFixed(2)}</td>
-            <td>${(object.provento.salario.total).toFixed(2)}</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>INSS</td>
-            <td>${(object.desconto.inss.ref).toFixed(2)}</td>
-            <td></td>
-            <td>${(object.desconto.inss.total).toFixed(2)}</td>
-        </tr>
-        <tr>
-            <td>IRRF</td>
-            <td>${(object.desconto.irrf.ref).toFixed(2)}</td>
-            <td></td>
-            <td>${(object.desconto.irrf.total).toFixed(2)}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td><strong>total dos proventos</strong</td>
-            <td><strong>total dos descontos</storng></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>${(object.provento.total).toFixed(2)}</td>
-            <td>${(object.desconto.total).toFixed(2)}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Salário Líquido</td>
-            <td>${(object.salarioLiquido).toFixed(2)}</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Ref</th>
+                <th>Provento</th>
+                <th>Desconto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Salário</td>
+                <td>${(object.provento.salario.ref).toFixed(2)}</td>
+                <td>${(object.provento.salario.total).toFixed(2)}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>INSS</td>
+                <td>${(object.desconto.inss.ref).toFixed(2)}</td>
+                <td></td>
+                <td>${(object.desconto.inss.total).toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>IRRF</td>
+                <td>${(object.desconto.irrf.ref).toFixed(2)}</td>
+                <td></td>
+                <td>${(object.desconto.irrf.total).toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><strong>total dos proventos</strong</td>
+                <td><strong>total dos descontos</storng></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>${(object.provento.total).toFixed(2)}</td>
+                <td>${(object.desconto.total).toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Salário Líquido</td>
+                <td>${(object.salarioLiquido).toFixed(2)}</td>
+            </tr>
+        </tbody>
     </table>`
 }
