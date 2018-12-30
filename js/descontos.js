@@ -5,29 +5,30 @@ function calcularDescontos(provento) {
     return {
         inss : inss,
         irrf : irrf, 
-        total : total(inss, irrf)
+        total : total(inss.total, irrf.total)
     }
 }
 
 /* Funções relativas do cálculo do inss */
 
 function calcularINSS(salarioBruto) {
-    let baseCalculo = salarioBruto > 5645.8 ? 5645.8 :  salarioBruto
-    let aliquota = obterAliquotaINSS(baseCalculo)
-    let total = obterResultadoINSS(baseCalculo, aliquota)
-
-    return {baseCalculo, aliquota, total}
+    return obterResultadoINSS(obterBaseCalculoINSS(salarioBruto), obterAliquotaINSS(obterBaseCalculoINSS(salarioBruto)))
 }
 
-function obterAliquotaINSS(baseCalculo) {
-    if (baseCalculo <= 1693.72) {
+function obterBaseCalculoINSS(salarioBruto) {
+    if (salarioBruto > 5645.8) return 5645.8
+    return salarioBruto
+}
+
+function obterAliquotaINSS(baseCalculoINSS) {
+    if (baseCalculoINSS <= 1693.72) {
         return 0.08
-    } else if (baseCalculo >= 1693.73 && baseCalculo <= 2822.9) {
+    } else if (baseCalculoINSS >= 1693.73 && baseCalculoINSS <= 2822.9) {
         return 0.09
-    } else if (baseCalculo >= 2822.91 && baseCalculo <= 5645.8) {
+    } else if (baseCalculoINSS >= 2822.91 && baseCalculoINSS <= 5645.8) {
         return 0.11
     } else {
-        return 5645.8 * 0.11
+        return 0.11
     }
 }
 
@@ -43,11 +44,11 @@ function calcularIRRF(salarioBruto, inss) {
     let taxaDeducao = obtertaxaDeducaoIRRF(baseCalculo)
     let total = obterResultadoIRRF(baseCalculo, aliquota, taxaDeducao)
 
-    return {baseCalculo, aliquota, taxaDeducao, total}
+    return {aliquota, taxaDeducao, total}
 }
 
-function obterBaseCalculoIRRF(salarioBruto, inss) {
-    return salarioBruto - inss
+function obterBaseCalculoIRRF(salarioBruto, inss, dependentes = 0) {
+    return (salarioBruto - inss) - dependentes
 }
 
 function obterAliquotaIRRF(baseCalculo) {
@@ -84,5 +85,5 @@ function obterResultadoIRRF(baseCalculo, aliquota, taxaDeducao) {
 
 //Melhorar o funcionamento da função
 function total ( inss, irrf ) {
-    return inss.total + irrf.total
+    return inss + irrf
 }

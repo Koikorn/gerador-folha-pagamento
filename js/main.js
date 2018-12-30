@@ -34,7 +34,7 @@ function mostrarFolha(object) {
         <tr>
             <td>INSS</td>
             <td></td>
-            <td>${(object.desconto.inss.total).toFixed(2)}</td>
+            <td>${(object.desconto.inss).toFixed(2)}</td>
         </tr>
         <tr>
             <td>IRRF</td>
