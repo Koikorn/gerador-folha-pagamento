@@ -1,0 +1,23 @@
+{
+  "name": "gerador-folha-pagamento",
+  "version": "1.0.0",
+  "description": "É um projeto pessoal que pego meus conhecimentos de departamento pessoal com programação javascript para gerar folhas de pagamentos, ao qual irei alcançar esses objetivos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanliveira/gerador-folha-pagamento.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanliveira/gerador-folha-pagamento/issues"
+  },
+  "homepage": "https://github.com/alanliveira/gerador-folha-pagamento#readme",
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2"
+  }
+}
