@@ -31,13 +31,17 @@
             <div class="row" id="form-cadastro">
                 <h3>Digite os dados do empregado</h3>
                 <form action="#" class="col s12">
-                    <div class="input-field">
+                    <div class="input-field col s12">
                         <label for="txtEmpregado">Nome do empregado: </label>
                         <input type="text" name="txtEmpregado" id="txtEmpregado">
                     </div>
-                    <div class="input-field">
+                    <div class="input-field col s8">
                         <label for="txtSalario">Salário: </label>
                         <input type="text" name="txtSalario" id="txtSalario">
+                    </div>
+                    <div class="input-field col s4">
+                        <label for="txtDiasTrabalhados">Dias Trabalhados: </label>
+                        <input type="text" name="txtDiasTrabalhados" id="txtDiasTrabalhados" value="30">
                     </div>
                     <button class="btn green" onclick="fazerCalculo()" type="button">Calcular</button>
                 </form>

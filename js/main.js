@@ -7,7 +7,8 @@ function fazerCalculo() {
 function obterEmpregado () {
     return {
         empregado : getInputSeletor('#txtEmpregado'),
-        salario : parseFloat(getInputSeletor('#txtSalario'))
+        salario : parseFloat(getInputSeletor('#txtSalario')),
+        diasTrabalhados: parseFloat(getInputSeletor('#txtDiasTrabalhados'))
     }
 }
 
@@ -30,24 +31,9 @@ function mostrarFolha(object) {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Salário</td>
-                <td>${(object.provento.salario.ref).toFixed(2)}</td>
-                <td>${(object.provento.salario.total).toFixed(2)}</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>INSS</td>
-                <td>${(object.desconto.inss.ref).toFixed(2)}</td>
-                <td></td>
-                <td>${(object.desconto.inss.total).toFixed(2)}</td>
-            </tr>
-            <tr>
-                <td>IRRF</td>
-                <td>${(object.desconto.irrf.ref).toFixed(2)}</td>
-                <td></td>
-                <td>${(object.desconto.irrf.total).toFixed(2)}</td>
-            </tr>
+            ${campoFolha('SALÁRIO', object.provento.salario, 'provento')}
+            ${campoFolha('INSS', object.desconto.inss, 'desconto')}
+            ${campoFolha('IRRF', object.desconto.irrf, 'desconto')}
             <tr>
                 <td></td>
                 <td></td>
@@ -68,4 +54,14 @@ function mostrarFolha(object) {
             </tr>
         </tbody>
     </table>`
+}
+
+function campoFolha(descricao, object, tipo) {
+    return `
+    <tr>
+        <td>${descricao}</td>
+        <td>${(object.ref).toFixed(2)}</td>
+        <td>${tipo ==='provento' ? (object.total).toFixed(2): ''}</td>
+        <td>${tipo ==='desconto' ? (object.total).toFixed(2) : ''}</td>
+    </tr>`
 }

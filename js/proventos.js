@@ -1,5 +1,6 @@
 function calcularProventos(object) {
-    let salario = calcularSalario(object.salario)
+    let diasTrabalhados = object.diasTrabalhados
+    let salario = calcularSalario(object.salario, diasTrabalhados)
     let total = obterTotalProventos(salario.total)
 
     return  {salario, total}
